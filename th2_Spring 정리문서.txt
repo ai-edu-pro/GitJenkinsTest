@@ -1,0 +1,821 @@
+>> day89 -  22/06/02
+
+ - egov 
+ 
+ - aws 가입 : 무료 (1년)    
+   비번 : xxxxxxAt22c
+
+
+ https://github.com/ai-edu-pro/jenkinsTest.git
+
+ git id / pwd  - 재빈/한용씨 공유 부탁해요
+
+====================================================
+>> day88 -  22/05/31
+
+ - Jenkins : 젠킨스는 소프트웨어 개발 시 지속적으로 통합 서비스를 제공하는 툴이다. CI(Continuous Integration) 툴 이라고 표현
+
+ https://www.jenkins.io/download
+ http://www.jenkins.io/doc/pipeline/steps
+
+ https://www.simplilearn.com/tutorials/jenkins-tutorial/jenkins-installation-on-windows
+ https://www.jenkins.io/doc/book/installing/windows/
+
+ - docs
+  https://www.jenkins.io/doc/pipeline/tour/getting-started
+     
+
+1. cmd> java -jar jenkins.war
+ or  cmd> java -jar jenkins.war --httpPort=9191
+
+ cf) Jenkins.xml 구성 파일
+  변경하고 나면 window key + r   > services.msc > Jenkins 우클릭 > 다시시작(Restart) > 브라우저에서 재접속(http://localhost:9191)
+   or  cmd> service jenkins restart 
+
+  cf)  name : JAVA_TOOL_OPTIONS
+        value : -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8
+
+2. 사용자 생성
+3. 새로운 잡 생성
+  - Freestyle project : 거의 모든 젠킨스의 설정을 자유롭게 설정할 수 있음
+4. 소스 코드 관리 : 소스 코드 관리를 선택 할 수 있음.(중복 선택 불가능)
+   General : job 이름을 정하고 설명을 달수 있음 
+   
+
+ https://github.com/minsoojun/spring-mvc-example
+
+ clean:clean checkstyle:checkstyle install
+
+ clean:clean org.jacoco:jacoco-maven-plugin:prepare-agent install
+
+ javaagent:/D:/DouZone_th2/8_Spring_myBatis/work_boot/coverage/jacocoagent/lib/org.jacoco.agent-0.8.8.jar=destfile=/D:/DouZone_th2/8_Spring_myBatis/work_boot/coverage/jacocoagent/dump/jacoco.exec,append=true,includes=*
+
+
+ > C:\app\apache-tomcat-9.0.59\conf\Catalina\localhost\manager.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Context privileged="true" antiResourceLocking="false" docBase="${catalina.hom}/webapps/manager">
+	<Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="^.*$" />
+</Context>
+
+ https://aws.amazon.com/ko/free
+ https://console.aws.amazon.com/console/home?nc2=h_ct&src=header-signin
+
+
+
+ > oracle cloude 
+ https://docs.oracle.com/en-us/iaas/developer-tutorials/tutorials/spring-on-ol/01oci-ol-spring-summary.htm
+
+
+-----------------------------------
+https://onestone-note.tistory.com/38
+https://krksap.tistory.com/1377
+https://krksap.tistory.com/1806
+
+=================================================
+>> day87 -  22/05/30
+
+ - nginx 
+ 동시접속 처리에 특화된 웹 서버 소프트웨어로, 가벼움과 높은 성능을 지향하고있습니다.
+ Nginx는 요청에 응답하기 위해 비동기 이벤트 기반 구조이며 이는 Apache 서버의 스레드/프로세스 기반 구조와 대조적입니다
+
+ Nginx의 이벤트 기반(Event-driven) 구조는 서버에 많은 부하가 생길 경우의 성능을 예측하기 쉽게 해 주며,
+ 고정된 프로세스만 생성하고, 내부에서 비 동기 방식으로 작업들을 처리하기 때문에 스레드/프로세스를 효율적으로 처리할 수 있습니다
+
+ 단점: 읽기/쓰기가 빈번한 상태면....
+
+ > Test  Sample 
+ - react : shop - package.json 에 추가
+  "proxy": "http://localhost:8080",  
+
+ - App.js 수정
+ const [message, setMessage] = useState("");
+
+  useEffect(()=>{
+    fetch('/api/hello')
+    .then(response => response.text())
+    .then(message=>{
+      setMessage(message);
+    })
+    .catch((err)=>{
+      console.log(err);
+    });
+  }, []);
+
+  <h1 className="App-title">{message}</h1>
+
+ - spring boot : demo 
+
+ - nginx 서버 실행 시키고 http://localhost/ 확인 
+
+ - 다운로드 사이트
+  http://nginx.org/en/download.html
+
+
+
+
+==============================================
+>> day86 -  22/05/27
+
+  > 문제] jpa, jwt, spring security 이용한 초간단 로그인 페이지 만들기 - 가입(이메일, 비밀번호, roles) , 로그인 화면(이메일, 비번)
+
+  > 종합 예제
+   백단에서 oralce 버전 변경
+   프론트 단에서도 axios 부분 ip 변경하기
+   
+   
+
+  > 종합 총 정리 할것!!!
+
+
+Content-Type: application/json
+User-Agent: 
+Accept: */*
+Cache-Control: no-cache
+Postman-Token: bd8240e4-e192-41bb-9b10-477b324d7e0e
+Host: localhost:8080
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+
+
+{
+“username”: “mod”,
+“email”: “mod@kosa.com”,
+“password” :”1234″,
+“role”: [“mod”]
+}
+
+{
+  "username":"doyeon",
+  "email":"ai.edu.kingsmile@gamile.com",
+  "password":"1234",
+  "role":["admin","user"]
+}
+
+
+{
+  "username":"doyeon",
+  "password":"123456",
+}
+
+
+ https://stackoverflow.com/questions/34475946/spring-boot-jwt-logout/42907381#42907381
+
+===========================================
+>> day85 -  22/05/26
+ 
+  > JWT   :  https://jwt.io/
+  https://atin.tistory.com/590
+  https://catsbi.oopy.io/f9b0d83c-4775-47da-9c81-2261851fe0d0
+
+ Header    - typ (타입), alg (알고리즘)
+ Payload   - Registered claims(등록된 클레임), Public claims(공개 클레임), Private claims(비공개 클레임)
+ Signature - 서명 : Header  + Payload = 비밀키로 해쉬해서 생성된 값
+
+  <---  CORS(Cross-Origin Resource Sharing) 해결하기 위해서 사용한다.
+
+
+   test :
+ {
+  "username":"doyeon",
+  "email":"abc@naver.com",
+  "password":"1234"
+ }
+
+ >> 참고 git site :
+ https://github.com/bezkoder/spring-boot-spring-security-jwt-authentica
+
+
+  > 종합 예제
+
+
+========================================
+>> day84 -  22/05/25
+
+  > JPA
+ https://blog.devbong.com/55
+
+  -- JPA 장점
+ 특정 데이터베이스에 종속되지 않음
+- 데이터베이스마다 쿼리문이 조금씩 다르기 때문에 데이터베이스 변경에 어려움이 많음, 하지만 JPA 는 추상화한 데이터 접근 계층을 제공하므로 설정 파일에 사용 데이터베이스만 지정하면 됨
+
+ 객체 지향적 프로그래밍 및 생산성 향상
+- 개발자가 직접 SQL을 작성하는 데이터베이스 설계 중심에서 Java 객체에 집중하도록 지원
+- 테이블 컬럼 수정 시 매핑된 클래스만을 변경하면 적용됨
+-------------------------------------------------------------------------------------
+  -- JPA 단점
+ - 복잡한 쿼리 처리 불가
+ - 자동으로 생성되는 쿼리로 인해서 개발자가 의도하지 않는 성능 저하
+ - 방대한 JPA 기술 학습에 필요한 시간과 노력
+
+
+
+==================================
+>> day83 -  22/05/24
+
+ > Rest  Api
+ 
+  http://192.168.2.10:8080/api/hello
+  http://kosa2.iptime.org:50200/api/hello
+
+  - 수정 : put or patch
+  - 삭제 : delete
+
+ http://fasterxml.github.io/jackson-databind/javadoc/2.13/com/fasterxml/jackson/databind/PropertyNamingStrategy.html
+ https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=countmonte7&logNo=221652834726
+
+  > JPA
+
+  > JWT
+
+
+=======================================
+>> day82 -  22/05/23
+
+  > Spring Boot
+   교재 1장~3장까지 보고 계세요.
+
+  https://start.spring.io
+
+  @SpringBootConfiguration : 스프링 부트용 @Configuration
+  @EnableAutoConfiguration : 사전에 정의한 라이브러리 빈을 등록
+  @ComponentScan : 각종 스프링 빈 애노테이션을 베이스 패키지에서부터 스탠하여 스프링 빈으로 스프링 IoC 컨테이너에 등록
+
+  참고 :
+ https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html
+
+  https://docs.spring.io/spring-boot/docs/current/reference/html/configuration-metadata.html
+
+ https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.structuring-your-code
+
+ https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-java-basic-concepts
+
+ - Java16과 호환성 문제 있음 --> 버전 1.18.20 해결  
+      <== Spring Boot 2.5.x버전은 자동으로~ , 2.4.4이하 버전은 수동으로 입력해줄것
+ https://github.com/projectlombok/lombok/issues/2681
+
+ https://docs.spring.io/spring-boot/docs/current/reference/html/configuration-metadata.html
+
+ - caching
+ https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#io.caching
+ https://spring.io/guides/gs/caching/
+
+
+  > Rest  Api
+
+  https://restfulapi.net/
+
+  http://192.168.2.10:8080/api/hello
+  http://kosa2.iptime.org:50200/api/hello
+
+  > JPA
+
+-------------------------------------------------------------
+
+ https://www.vaultproject.io/
+ https://github.com/hashicorp/vault
+
+ https://spring.io/projects/spring-vault
+ https://spring.io/projects/spring-cloud-vault
+ https://spring.io/projects/spring-cloud-vault#overvie
+ https://docs.spring.io/spring-cloud-vault/docs/current/reference/html/
+
+
+===================================
+>> day81 -  22/05/20
+
+   > Security  & myBatis & Tiles 종합 예제
+
+   - 테스트 아이디 
+    admin 
+    00001 ~ 00003
+
+
+문제]  select * from dept2; 테이블 이용한 CRUD 구현 - myBatis 적용
+ id, 권한설정 필드 추가하고 - security 적용
+
+
+
+
+
+> 교재 신청
+1.  제목 : 스프링 부트와 AWS로 혼자 구현하는 웹 서비스
+     출판사 : 프리렉
+     저자 : 이동욱 
+
+ 2. 제목 : 코드로 배우는 스프링 웹 프로젝트
+     출판사 : 남가람북스
+     저자 : 구멍가게 코딩단
+
+
+=========================================
+>> day80 -  22/05/19
+
+  > JDBC 테스트 	
+   단위테스트 : 일반적으로 구축전이나 도중에 구체적인 부분만 확인하기 위해
+			통합테스트 : 전반적인 부분을 확인하기 위해
+		
+  ※ 테스트는 어떠한 경우에서라도 서로 의존해서는 안되고, 서로 절대 영향을 줘서도 안됩니다.
+
+   JUnit : 이미 자바에서는 테스팅을 하기 위해 기존 코드와 유사한 코드를 만드는 불편함을 없애기 위한 여러 테스팅    도구들이 존재하고, 그 중 JUnit은 표준이라 할 정도로 폭넓게 사용되는 자바 테스팅 프레임워크입니다.
+	 
+* JUnit 테스트 메서드 규칙(@Test)
+	1. 테스트 대상 메서드가 public 으로 선언되어야 합니다.
+	2. 메서드에 @Test 라는 어노테이션이 필요합니다.
+	3. 반환형은 없고, 매개변수도 없어야 합니다.	 	
+	
+	
+   (1) src/test/java  JdbcTest.java					
+   (2) Run As > Junit test 로 구동
+
+  > Security
+
+  > Spring Boot
+
+  > Rest  Api
+
+
+
+===============================================
+>> day79 -  22/05/18
+
+
+  > Spring MVC_Board & myBatis 
+
+  > Spring Boot
+
+  > Rest  Api
+
+  > Security
+
+
+======================================
+>> day78 -  22/05/17
+
+> MyBatis  - 설정 파일 : xml file
+ 1) 연결   - sqlMapconfig.xml : db connection, username/password, mapper path
+ 2) DML 명령 - mapper.xml : select / insert / delete / update ....
+ 3) 매핑메소드 - application : src/ ~DAO.java,   web : ~.jsp  파일로 만들 수 있음
+
+
+ > Spring MVC_Board & myBatis 
+
+
+ > Security
+
+
+======================================
+>> day77 -  22/05/16
+
+ - lombok 설치
+  https://projectlombok.org/download
+
+  - 제대로 인식 안될때 방법
+  lombok - https://projectlombok.org/p2
+
+ > Spring MVC - DI
+    - xml
+    - annotation
+
+> MyBatis  - 설정 파일 : xml file
+ 1) 연결    
+ 2) DML 명령
+ 3) 매핑메소드 
+
+
+ > Spring MVC_Board & myBatis 
+
+
+ > Security
+
+-----------------------------------------------------------------------------
+1. 중호 한용  지영 지은 승범
+
+2. 희수 태문  정민 채린 지호
+
+3. 채연 성록  봉제 상윤 윤지
+
+4. 재빈 윤성  우형 동훈
+
+
+============================================
+>> day76 -  22/05/13
+
+  > Spring MVC  & JDBC
+   - xml
+   - annotation
+
+3) 스프링 MVC의 주요 구성 요소
+DispatcherServlet : 브라우저가 송신한 요청을 일괄 관리한다.
+HandlerMapping : 웹요청 URL과 컨트롤러 클래스를 맵핑시켜 관리한다.
+Controller : 비즈니스 로직을 호출하고, 관리 결과인 ModelAndView를 반환한다.
+ViewResolver : 컨트롤러 클래스가 반환한 뷰 이름으로 이동할 뷰를 결정한다.
+View : 프리젠테이션 계층으로 출력 데이터를 설정한다.
+
+4) HandlerMapping 인터페이스 구현 클래스
+  - BeanNameUrlHandlerMapping : 스프링 설정 파일에 핸들러 맵핑을 전혀 정의하지 않을때 기본 클래스
+  - SimpleUrlHandlerMapping : 웹 요청 URL과 컨트롤러의 맵핑을 일괄 정의한다. 스프링 설정 파일에 컨트롤러의 정의가 분산되는 것을 방지한다.
+  - ControllerClassNameHandlerMapping : 컨트롤러에 어노테이션을 부여해서 웹 요청 URL과 관련을 정의한다.
+  
+5) ViewResolver 인터페이스 구현
+  - InternalResourceViewResolver : 스프링 설정 파일에 ViewReolver를 전혀 정의하지 않을때의 기본 클래스
+  - ResourceBundleViewResolver : 프로퍼티 파일에서 뷰이름과 그 실체인 뷰를 관련 짓는다. classes 패스에 위치  .properties 파일들에 대한 처리...
+  - VelocityViewResolver : 벨로시티 템플릿으로 만든 뷰를 해결한다.
+  
+6) View 인터페이스 구현
+  - InternalResourceView : JSP 자원용 뷰. 요청 속성에 모델을 지정하고, RequestDispatcher 클래스를 참조해서 지정된 뷰에 전달한다.
+  - JstlView : JSTL를 사용한 페이지용 뷰. InternalResourceView 클래스의 서브 클래스.
+  - VelocityView : 벨로시티 템플릿용 뷰
+  - MappingJacksonJsonView : JSON 형식으로 출력하기 위한 뷰. JSON으로의 변환 라이브러리로서 Jackson(http://jackson.codehaus.org) 
+
+
+<!-- JDBC 설정 정보, DB 연결 하기 -->
+<bean id="dataSource"  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<property name="driverClassName"   value="oracle.jdbc.driver.OracleDriver" />
+	<property name="url" value="jdbc:oracle:thin:@192.168.2.36:1521:orcl" />
+	<property name="username"><value>kingsmile</value></property>
+	<property name="password"><value>1234</value></property>
+</bean>
+
+문제] dept2 테이블 이용한 CRUD 만들기  
+   Spring MVC  & JDBC 이용할것 
+
+===================================
+>> day75 -  22/05/12
+
+ > 소프트웨어공학기술의 요구사항 분석 기법을 활용하여 협약 기업 담당자 또는 강사가 정의한
+    응용소프트웨어의 요구사항을 확인
+    [클라우드 기반 웹 서비스 프로젝트 수행]
+
+ 
+ > Spring MVC
+   - xml
+   - annotation
+
+============================================
+>> day74 -  22/05/11
+
+ > 프로젝트 문서화 방법들
+  
+ >  AOP  마무리
+
+    - xml
+    - annotation
+
+  > Spring DAO - JDBC
+
+   - ~DAO_DI_xml
+   - ~DAO_DI_Annotation
+
+
+ > Spring MVC 
+
+========================================
+>> day73 -  22/05/10
+
+ > 코딩 테스트
+
+ > 프로젝트 문서화 방법들
+  
+ >  AOP  p89~ 
+
+    - xml
+    - annotation
+
+  > Spring DAO - JDBC
+
+   - ~DAO_DI_xml
+   - ~DAO_DI_Annotation
+
+
+--------------------------------------------------------
+> JDBC 
+--------------------------------------------------------
+1. oracle 라이브러리 등록
+
+2. 설정 파일 
+ #oracle.properties
+driver=oracle.jdbc.driver.OracleDriver
+url=jdbc:oracle:thin:@kosadb_high?TNS_ADMIN=C:\\app\\Oracle\\Wallet_kosaDB
+user=kingsmile
+password=xxxxxxAt22cc
+
+3. DBConnection.java 테스트 파일
+package connUtil;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
+
+public class DBConnection {
+
+	private static Connection conn;
+
+	private DBConnection() {
+	}
+
+	static {
+		// 환경설정 파일을 읽어오기 위한 객체 생성
+		Properties properties  = new Properties();
+		Reader reader;
+		try {
+//			reader = new FileReader("D:/DouZone_th2/1_Java/workspace/day24_jdbc/src/ib/oracle.properties");  // 읽어올 파일 지정
+			reader = new FileReader("src/connUtil/oracle.properties"); 
+			properties.load(reader);                           // 설정 파일 로딩하기
+		} catch (FileNotFoundException e1) {
+			System.out.println("예외: 지정한 파일을 찾을수없습니다 :" + e1.getMessage());
+			e1.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		String driverName = properties.getProperty("driver");
+		String url = properties.getProperty("url");
+		String user = properties.getProperty("user");
+		String pwd = properties.getProperty("password");
+
+		try {
+			Class.forName(driverName);
+//			System.out.println("drive load success");
+			conn = DriverManager.getConnection(url, user, pwd);
+//			System.out.println("connection success!!!!");
+			
+		} catch (ClassNotFoundException e) {
+			System.out.println("예외: 드라이버로드 실패 :" + e.getMessage());
+			e.printStackTrace();
+		} catch (SQLException e) {
+			System.out.println("예외: connection fail :" + e.getMessage());
+			e.printStackTrace();
+		}
+	}
+
+	public static Connection getConnection() {
+		return conn;
+	}
+	
+	
+//	public static void main(String[] args) {
+//		getConnection();
+//		
+//	}
+}
+=================================
+>> day72 -  22/05/09
+
+  >  AOP  p89~ 
+
+   - xml
+   - annotation
+
+문제] Print interface 생성   public void show() 추상메소드
+  Student / Employee  class  Print interface implements 해서 필요한 멤버 추가하고 
+  show 오버라이드해서
+  spring 설정파일 xml 에서 설정하고 around aop 구현하기
+
+
+
+> 스프링AOP JoinPoint
+JoinPoint는 Spring AOP 혹은 AspectJ에서 AOP가 적용되는 지점을 뜻한다.
+해당 지점을 JoinPoint 라는 인터페이스로 나타낸다. AOP 를 수행하는 메소드는 이 JoinPoint 인스턴스를 인자로 받는다.
+JoinPoint 인스턴스에서 조인 포인트 지점의 정보를 얻어내야 한다.
+메소드별 설명
+JoinPoint.getThis() : AOP 프록시 객체를 반환한다.
+JoinPoint.getTarget() : AOP가 적용된 대상 객체를 반환한다. 프록시가 벋겨진 상태의 객체이다.
+JoinPoint.getArgs() : JointPoint에 전단된 인자를 배열로 반환한다. (인자는 AOP 를 사용하는 메소드의 인자를 말함.)
+JoinPoint.getKind() : 어떤 종류의 JoinPoint인지 문자열로 반환한다. 보통은 메소드 호출이므로 "method-execution"
+JoinPoint.getSignature() : Signature 객체 반환
+getName() : JointPoint의 이름을 반환한다. 메소드 JoinPoint이면 메소드 이름
+getDeclaringType() : JointPoint를 선언하고 있는 타입을 반환한다. 즉, JoinPoint가 메소드이면, 해당 메소드의 클래스를 반환한다.
+getDeclaringTypeName() : JoinPoint를 선언하고 있는 타입의 이름을 반환한다. 즉, JoinPoint가 메소드이면, 해당 메소드의 클래스 이름을 반환한다.
+Signature를 상속받은 MethodSignature 인터페이스의 구현체인 경우, 조인 포인트로 지정된 메소드를 바로 받을 수 있다.
+MethodSignature.getMethod()
+JoinPoint가 메소드일 경우 해당 JoinPoint에 대한 java.lang.reflect.Method 객체 확보하기
+
+
+//@Pointcut("execution(public void get*(..))")	// public void인 모든 get메소드
+//@Pointcut("execution(* kr.edu.kosta.*.*())")	// kr.edu.kosta 패키지에 파라미터가 없는 모든 메소드
+//@Pointcut("execution(* kr.edu.kosta..*.*())")	// kr.edu.kosta 패키지 & kr.edu.kosta 하위 패키지에 파라미터가 없는 모든 메소드
+//@Pointcut("execution(* kr.edu.kosta.Worker.*())")	// kr.edu.kosta.Worker 안의 모든 메소드
+
+//@Pointcut("within(kr.edu.kosta.*)")	//kr.edu.kosta 패키지 안에 있는 모든 메소드
+//@Pointcut("within(kr.edu.kosta..*)")  //kr.edu.kosta 패키지 및 하위 패키지 안에 있는 모든 메소드
+//@Pointcut("within(kr.edu.kosta.Worker)") //kr.edu.kosta.Worker 모든 메소드
+	
+//@Pointcut("bean(student)")	//student 빈에만 적용
+@Pointcut("bean(*ker)")	//~ker로 끝나는  빈에만 적용
+
+
+  > Spring DAO - JDBC
+
+   - ~DAO_DI_xml
+   - ~DAO_DI_Annotation
+
+
+
+
+ https://repo.maven.apache.org/maven2
+ https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Versions
+ https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Artifacts
+====================================
+>> day71 -  22/05/06
+
+ DI - 1) xml 기반 설정 
+       2) annotation 설정
+            @Autowired  
+            @Autowired(required=false) 
+            @Qualifier
+            @Resource
+
+문제] Person interface  - 이름 / 나이 / 성별
+  학생, 회사원 class 만들기 
+  @Autowired  적용해서 만들기 
+
+
+
+  > Annotation 정리
+  http://www.nextree.co.kr/p5864
+
+============================================
+>> day70 -  22/05/04
+ 
+ https://12bme.tistory.com/157
+
+  ## 프레임워크 레벨의 관리를 통해 개발자는 객체들간의 의존성에 신경을 덜 쓰고 Coupling 을 줄일 수 있으며 높은 재사용성과 가독성있는 코드를 만들어낼 수 있다.
+제어의 역전(Inversion Of Control) 이라 하며, 이것이 스프링 프레임워크의 특징적인 개념인 IOC 이다.
+
+(클래스 관리의 주체가 개발자가 아닌 프레임워크라는 뜻이다.)
+결과적으로 이러한 개발 편리성은 높은 생산성을 이끌어낼 수 있는 스프링의 큰 장점이다.
+
+ - DI 정리
+ 
+  AnnotationConfigApplicationContext 
+  AbstractApplicationContext
+  ApplicationContext 
+  GenericXmlApplicationContext
+  ClassPathXmlApplicationContext
+
+
+  - DI Annotation 
+  @Configuration: 스프링 설정에 사용되는 클래스임을 명시해주는 어노테이션
+  @Bean : 객체를 생성하는 어노테이션
+
+ - @Scope 
+  https://docs.spring.io/spring/docs/3.0.0.M3/reference/html/ch04s04.html
+
+
+ - AOP
+
+==================================
+>> day69 -  22/05/03
+
+ - Spring API
+  https://docs.spring.io/spring/docs/5.1.3.RELEASE/javadoc-api/
+
+  - Maven : project 관리 도구
+  https://mvnrepository.com/
+  https://search.maven.org
+
+ https://github.com/spring-projects/spring-framework
+
+
+  1) 라이브러리 lib 폴더에 넣는 방법
+  2) 메이븐으로 만들어서 디펜던시 하는 방법 - pom.xml
+ 
+
+java ex)  Point pt = new Point();
+spring ex)  <bean  id="obj"  class="kr.edu.kosa.Point" />
+
+  
+  경로에 한글 사용 자제 해주세요.
+
+ C:\Users\class4-teacher\.m2\repository  <---- 로컬 저장소 
+
+ - DI (IoC)
+  1. constructor 이용    <constructor-arg>   -- 권장
+  2. setter method 이용 방법  <property>  <--- API에는 대부분 setter method 기반임
+
+문제1] 성적처리 이름, 음악, 미술, 체육 , 총점, 평균 
+  확장성, 인터페이스기반 구현하기, 스프링 기반으로 만들기 - DI  
+
+문제2] Person interface  - 이름 / 나이 / 성별
+  학생, 회사원 class 만들기 
+  setter method 이용해서 설정 파일 만들고, 메인에서 출력하기
+
+문제3] Player interface 있고 - 선수이름, 포지션, 종목이름
+  축구 / 농구 / 컬링 종목 클래스 만들고  setter / constructor 이용해서
+  설정파일 만들고, 메인에서 출력하기 
+
+ 네이버 카페에 올려놓는다.
+
+ - POJO
+
+ - AOP
+
+=============================================
+>> day68 -  22/05/02
+	
+  - 처음 만드는 Spring MVC 프로그램으로 구조 파악하기
+
+>> Maven 특징
+  http://www.egovframe.go.kr/wiki/doku.php?id=egovframework:dev:dep:build:maven
+
+  http://www.mvnrepository.com/
+  http://search.maven.org/
+
+1) Oracle port 변경
+
+	SQL>conn /as sysdba
+	(설명글) sysdba 접속
+
+	SQL>SELECT DBMS_XDB.GETHTTPPORT() FROM DUAL;
+	(설명글) 현재 포트 번호를 확인
+
+	SQL>EXEC DBMS_XDB.SETHTTPPORT(9090);
+	(설명글) 9090 포트 번호로 변경명령어
+
+	SQL>SELECT DBMS_XDB.GETHTTPPORT() FROM DUAL;
+	(설명글) 변경 유무를 확인
+
+
+======================================
+
+
+ .m2 폴더
+
+>> STS 다운로드  or 전자정부 egov 다운로드
+  https://spring.io/tools
+
+   플러그인 설치(Eclipse>Help>Eclipse Maketplace)
+   Eclipse Enterprise Java and Web Developer Tools 3.20
+   Spring Tools 3 Add-On for Spring Tools 4 3.9.17.RELEASE
+   MyBatise 1.2.4
+
+
+   https://www.egovframe.go.kr/home/sub.do?menuNo=41
+
+ >> 이전 버전 다운로드
+   https://kuzuro.blogspot.com/2020/06/sts.html
+   https://github.com/spring-projects/sts4/wiki/Previous-Versions
+
+
+   
+
+>> 용어조사 과제
+
+Framework 	
+bean		
+DI(Dependency Injection(의존성주입)- IoC
+AOP(Aspect Oriented Programming(관점지향프로그래밍)
+POJO			
+proxy  or proxy 우회
+Validation			
+HandlerMapping
+Dispatcher Servlet		
+Spring MVC Life Cycle
+ContextLoaderListener	
+패턴매칭
+
+Join Point		
+Pointcut		
+Aspect		
+Advice		
+Weaving
+
+expression	
+Annotation	
+Repository	
+트랜잭션
+
+전자정부표준 프레임워크(egov)		
+Maven : 프로젝트 관리 도구 
+
+아키텍처(architecture)
+
+
+
+-------유용한 사이트----------------------------------------
+> 동영상 강좌
+https://www.youtube.com/watch?v=CsOrR-4nH-s&list=PLPvokKzUkaLeiLUDKpqRdP8jtLU8lLKgR
+
+
+https://github.com/spring-projects/spring-framework
+
+https://www.jetbrains.com/help/idea/nullable-and-notnull-annotations.html
+https://projectlombok.org/features/NonNull
+
+https://www.youtube.com/watch?v=CsOrR-4nH-s&list=PLzXU1vW098TSRZ0oSWqPCVCNeBa4BmCJ8
+
+ http://www.wiz.center/search/spring
+
+>> MyBatis 참고
+http://www.mybatis.org/mybatis-3/ko/getting-started.html
+
+>> Admin LTE
+ https://almsaeedstudio.com/themes/AdminLTE/index2.html
+=====================================
+
