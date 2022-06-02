@@ -5,3 +5,5 @@ git & jenkins 연결 테스트!!
 
 
 나는 재빈입니다!!
+
+file upload 실행했음
